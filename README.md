@@ -53,7 +53,6 @@ Data flows from a **web uploader or Python generator → Amazon S3 → Databrick
 6. **Automation**  
    - All steps orchestrated with Dockerized Airflow DAGs
 
----
 
 ---
 
