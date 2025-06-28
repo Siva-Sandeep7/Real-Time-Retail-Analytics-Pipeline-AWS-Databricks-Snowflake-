@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retail Data Lake Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+        }
+        .login-container {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(44,62,80,0.18);
+            padding: 40px 36px 28px 36px;
+            max-width: 370px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .logo {
+            width: 70px;
+            margin-bottom: 18px;
+            animation: spin 2s linear infinite alternate;
+        }
+        @keyframes spin {
+            0% { transform: rotate(-10deg); }
+            100% { transform: rotate(10deg); }
+        }
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #4f3ca7;
+            margin-bottom: 8px;
+            font-size: 2rem;
+        }
+        .creator {
+            font-size: 0.98rem;
+            color: #888;
+            margin-bottom: 18px;
+        }
+        .input-group {
+            margin-bottom: 18px;
+            text-align: left;
+        }
+        label {
+            font-size: 1rem;
+            color: #4f3ca7;
+            margin-bottom: 4px;
+            display: block;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 7px;
+            border: 1px solid #d1d5db;
+            font-size: 1rem;
+            margin-bottom: 2px;
+            transition: border 0.2s;
+        }
+        input[type="text"]:focus, input[type="password"]:focus {
+            border: 1.5px solid #764ba2;
+            outline: none;
+        }
+        .btn {
+            width: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            border: none;
+            padding: 12px 0;
+            border-radius: 7px;
+            font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 8px;
+            box-shadow: 0 2px 8px rgba(118,75,162,0.08);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn:hover {
+            background: linear-gradient(90deg, #764ba2 0%, #667eea 100%);
+            transform: translateY(-2px) scale(1.03);
+        }
+        .flash {
+            margin-bottom: 16px;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 0.98rem;
+        }
+        .flash-danger {
+            background: #fff5f5;
+            color: #c53030;
+            border: 1px solid #fed7d7;
+        }
+        .hint {
+            font-size: 0.93rem;
+            color: #aaa;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img class="logo" src="https://img.icons8.com/color/96/000000/cloud-storage.png" alt="Retail Data Lake Logo">
+        <h2>Retail Data Lake</h2>
+        <div class="creator">Created by <b>A SANDEEP</b></div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="flash flash-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        <form method="POST" autocomplete="off">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required autofocus>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button class="btn" type="submit">Login</button>
+        </form>
+        <div class="hint">Demo: retailadmin / retail123</div>
+    </div>
+</body>
+</html> 
